@@ -12,12 +12,13 @@ const Login = () => {
   })
 
   const handleChange = (e:  React.ChangeEvent<HTMLInputElement>): void => {
-    console.log(e);
-    
+    console.log(e.currentTarget.name, e.currentTarget.value);
+    const currentName : string = e.currentTarget.name;
+    const currentValue : string = e.currentTarget.value;
     setFormData((prev) => {
       return {
         ...prev,
-        [e.currentTarget!.name]: e.currentTarget!.value,
+        [currentName]: currentValue,
       };
     });
   };
