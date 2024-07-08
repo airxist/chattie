@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./routes/onboarding/Login";
 import Register from "./routes/onboarding/Register";
-import Verify from './routes/onboarding/Verify'
+import Verify from "./routes/onboarding/Verify";
 import AddSpace from "./routes/onboarding/AddSpace";
 import Selection from "./routes/onboarding/Selection";
 import Forgot from "./routes/recover/Forgot";
