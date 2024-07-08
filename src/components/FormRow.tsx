@@ -7,7 +7,7 @@ type FormRowProps = {
   type: string;
   placeholder?: string;
   value?: string;
-  handleChange?: () => VoidFunction;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   route?: string;
 };
 

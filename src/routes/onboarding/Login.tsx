@@ -11,11 +11,13 @@ const Login = () => {
     password: ""
   })
 
-  const handleChange = (e: InputEvent) => {
+  const handleChange = (e:  React.ChangeEvent<HTMLInputElement>): void => {
+    console.log(e);
+    
     setFormData((prev) => {
       return {
         ...prev,
-        [e.target!.name]: e.target!.value,
+        [e.currentTarget!.name]: e.currentTarget!.value,
       };
     });
   };

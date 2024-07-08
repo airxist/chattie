@@ -7,7 +7,6 @@ const Location = ({
   className?: string
 }) => {
   const location = useLocation();
-  console.log(location);
   return (
     <div className={`${className || 'mb-5'} flex divide-x-2 divide-primary_purple-3`}>
       {
