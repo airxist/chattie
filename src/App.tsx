@@ -1,23 +1,29 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./routes/onboarding/Login";
-import Register from "./routes/onboarding/Register";
-import Verify from "./routes/onboarding/Verify";
-import AddSpace from "./routes/onboarding/AddSpace";
-import Selection from "./routes/onboarding/Selection";
-import Forgot from "./routes/recover/Forgot";
-import Reset from "./routes/recover/Reset";
+import { Suspense, lazy } from "react";
+
+const Login = lazy(() => import('./routes/onboarding/Login'))
+const Register = lazy(() => import('./routes/onboarding/Register'))
+const Verify = lazy(() => import('./routes/onboarding/Verify'))
+const AddSpace = lazy(() => import('./routes/onboarding/AddSpace'))
+const Selection = lazy(() => import('./routes/onboarding/Selection'))
+const Forgot = lazy(() => import('./routes/recover/Forgot'))
+const Reset = lazy(() => import('./routes/recover/Reset'))
+const Profile = lazy(() => import('./routes/profile/Profile'))
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Register />} />
-      <Route path="login" element={<Login />} />
-      <Route path="verify" element={<Verify />} />
-      <Route path="add_space" element={<AddSpace />} />
-      <Route path="selection" element={<Selection />} />
-      <Route path="forgot_password" element={<Forgot />} />
-      <Route path="reset_password" element={<Reset />} />
-    </Routes>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/verify" element={<Verify />} />
+        <Route path="/add_space" element={<AddSpace />} />
+        <Route path="/selection" element={<Selection />} />
+        <Route path="/forgot_password" element={<Forgot />} />
+        <Route path="/reset_password" element={<Reset />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </Suspense>
   );
 };
 

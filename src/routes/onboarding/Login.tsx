@@ -2,19 +2,20 @@ import Onboarding from "../../shared/Onboarding"
 import FormRow from "../../components/FormRow";
 import { useState } from "react";
 import Button from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Location from "../../components/Switching";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   })
 
-  const handleChange = (e:  React.ChangeEvent<HTMLInputElement>): void => {
-    console.log(e.currentTarget.name, e.currentTarget.value);
-    const currentName : string = e.currentTarget.name;
-    const currentValue : string = e.currentTarget.value;
+  const handleChange = (event:  React.ChangeEvent<HTMLInputElement>): void => {
+    const currentName : string = event.currentTarget.name;
+    const currentValue : string = event.currentTarget.value;
     setFormData((prev) => {
       return {
         ...prev,
@@ -23,11 +24,17 @@ const Login = () => {
     });
   };
 
+  const handleSubmit = ((event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // const { email, password } = formData;
+    navigate('/profile')
+  })
+
   return (
     <Onboarding showBackground>
       <div className="w-96">
         <Location />
-        <form className="flex flex-col items-center justify-between gap-9 w-full">
+        <form className="flex flex-col items-center justify-between gap-9 w-full" onSubmit={handleSubmit}>
           <FormRow
             label="email"
             labelMain="email"

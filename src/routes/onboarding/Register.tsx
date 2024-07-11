@@ -1,11 +1,13 @@
 import FormRow from "../../components/FormRow";
 import Onboarding from "../../shared/Onboarding";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Location from "../../components/Switching";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -13,7 +15,6 @@ const Register = () => {
   });
 
   const handleChange = (e:  React.ChangeEvent<HTMLInputElement>): void => {
-    console.log(e.currentTarget.name, e.currentTarget.value);
     const currentName : string = e.currentTarget.name;
     const currentValue : string = e.currentTarget.value;
     setFormData((prev) => {
@@ -24,11 +25,17 @@ const Register = () => {
     });
   };
 
+  const handleSubmit = ((event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log("I am handling submit")
+    navigate('/verify', {})
+  })
+
   return (
     <Onboarding showBackground>
       <div className="w-[377px]">
         <Location />
-        <form className="flex flex-col items-center justify-between gap-9 w-full">
+        <form className="flex flex-col items-center justify-between gap-9 w-full" onSubmit={handleSubmit}>
           <FormRow
             label="fullname"
             labelMain="Full Name"

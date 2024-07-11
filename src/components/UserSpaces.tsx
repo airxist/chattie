@@ -1,25 +1,29 @@
-import UserCTA from "./UserCTA";
+import SpaceCTA from "./SpaceCTA";
 
 const UserSpaces = ({
   title,
   show,
   description,
+  className,
+  user
 }: {
   title: string;
-  show: boolean;
+  show?: boolean;
   description?: string;
+  className?: string;
+  user: boolean
 }) => {
   return (
-    <div>
-      <div>...</div>
+    <div className={`${className} flex space-x-5 items-start`}>
+      <div className="border">...</div>
       <div>
-        <div>
-          <h4>{title}</h4>
-          {show && <UserCTA user />}
+        <div className="flex items-center space-x-10">
+          <h4 className="font-medium">{title}</h4>
+          {show && <SpaceCTA user={user} />}
         </div>
         {show && (
           <div>
-            <p>{description}</p>
+            <p>{description ? description : 'No description for now'}</p>
           </div>
         )}
       </div>

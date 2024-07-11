@@ -1,5 +1,7 @@
 import backgroundImage from "../assets/images/bg.jpg";
+import Alert from "../components/Alert";
 import Bars from "../components/Bars";
+import useLocalState from "../utils/useLocalState";
 
 const Onboarding = ({
   className,
@@ -10,14 +12,24 @@ const Onboarding = ({
   children: React.ReactNode;
   showBackground?: boolean;
 }) => {
+  const {
+    alert: { state },
+  } = useLocalState();
+
   return (
     <section
       className={`${className} || flex items-center justify-center h-screen`}
     >
-      <div className="flex-1 w-[50%] h-full px-10 py-10 flex items-center justify-center relative isolate">
+      <div className="relative flex-1 w-[50%] h-full px-10 py-10 flex items-center justify-center isolate">
         <Bars className="bottom-0 left-0 rotate-180" />
+
         {children}
+
         <Bars className="top-0 right-0" />
+
+        {/* the alert */}
+        {state && <Alert />}
+        {/* end of the alert */}
       </div>
       {showBackground && (
         <div className="hidden lg:block w-[50%] h-full">
