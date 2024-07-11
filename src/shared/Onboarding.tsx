@@ -1,7 +1,8 @@
 import backgroundImage from "../assets/images/bg.jpg";
 import Alert from "../components/Alert";
 import Bars from "../components/Bars";
-import { AppContextType, useGlobalContext } from "../utils/context";
+import { useGlobalContext } from "../utils/context";
+import { AppContextType } from "../constants/interfaces";
 
 const Onboarding = ({
   className,

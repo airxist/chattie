@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Create from "./routes/create/Create";
+import ShareCreate from "./shared/ShareCreate";
+import AddMember from "./routes/create/AddMember";
 
 const Login = lazy(() => import('./routes/onboarding/Login'))
 const Register = lazy(() => import('./routes/onboarding/Register'))
@@ -23,7 +25,10 @@ const App = () => {
         <Route path="/forgot_password" element={<Forgot />} />
         <Route path="/reset_password" element={<Reset />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/create_space" element={<Create />} />
+        <Route path="/create_space" element={<ShareCreate />}>
+          <Route index element={<Create />} />
+          <Route path="add_member" element={<AddMember />} />
+        </Route>
       </Routes>
     </Suspense>
   );

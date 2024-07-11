@@ -1,11 +1,13 @@
+import Bars from "../components/Bars";
 import TopBar from "../components/TopBar";
 
-const TemplateBoard = ({ children, topClass } : {children : React.ReactNode, topClass?: string}) => {
+const TemplateBoard = ({ children, topClass, showBars } : {children : React.ReactNode, topClass?: string, showBars?: boolean}) => {
   const Template = () => {
     return <section className="min-h-screen">
       <TopBar
         className={topClass}
       />
+      {showBars && <Bars className='rotate-180 bottom-0 left-0' />}
       { children }
     </section>
   }

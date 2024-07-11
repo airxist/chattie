@@ -8,7 +8,7 @@
   }
 
   .bar {
-    @apply bg-primary_purple-1;
+    @apply bg-primary_purple-2;
   }
   
   .input-container {

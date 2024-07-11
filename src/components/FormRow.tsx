@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 type FormRowProps = {
   joined?: boolean;
   label: string;
-  labelMain: string;
+  labelMain?: string;
   type: string;
   placeholder?: string;
   value?: string;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   route?: string;
+  check?: boolean,
+  description?: string,
+  labelText?: string
 };
 
 const FormRow = ({
@@ -20,6 +23,9 @@ const FormRow = ({
   value,
   handleChange,
   route,
+  check,
+  description,
+  labelText,
 }: FormRowProps) => {
   const LinkingInput = () => {
     return (
@@ -54,6 +60,7 @@ const FormRow = ({
             {labelMain}
           </label>
         </div>
+        {description && <p className="text-sm text-slate-400">{description}</p>}
         <div>
           <input
             type={type}
@@ -93,7 +100,14 @@ const FormRow = ({
     );
   };
 
-  return route ? LinkingInput() : joined ? JoinedInput() : NonLinkingInput();
+  const CheckBox = () => {
+    return <div className="input-container">
+      <label htmlFor={label}>{labelText}</label>
+      <input type={type} id={label} name={label} onChange={handleChange} />
+    </div>
+  }
+
+  return route ? LinkingInput() : joined ? JoinedInput() : check ? CheckBox() : NonLinkingInput();
 };
 
 export default FormRow;

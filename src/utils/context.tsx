@@ -15,7 +15,9 @@ const AppProvider = ({children}: ReactChildren) => {
     success,
     setSuccess,
     loading,
-    setLoading
+    setLoading,
+    title,
+    setTitle
   } = useLocalState();
 
   return (
@@ -25,7 +27,9 @@ const AppProvider = ({children}: ReactChildren) => {
       success,
       setSuccess,
       loading,
-      setLoading
+      setLoading,
+      title,
+      setTitle
     }}>
       {children}
     </AppContext.Provider>

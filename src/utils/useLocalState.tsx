@@ -7,8 +7,11 @@ const useLocalState = () : {
     success: boolean,
     setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
     loading: boolean,
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+    title: string,
+    setTitle: React.Dispatch<React.SetStateAction<string>>
 } => {
+
   const [alarm, setAlarm] = useState({
     state: true,
     type: 'danger',
@@ -29,13 +32,17 @@ const useLocalState = () : {
 
   const [loading, setLoading] = useState(false);
 
+  const [title, setTitle] = useState('Some Title');
+
   return {alarm,
     showAlarm,
     hideAlarm,
     success,
     setSuccess,
     loading,
-    setLoading
+    setLoading,
+    title,
+    setTitle
   }
 }
 

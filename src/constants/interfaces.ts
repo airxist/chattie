@@ -9,5 +9,7 @@ export interface AppContextType {
   success: boolean,
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
   loading: boolean,
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  title: string,
+  setTitle: React.Dispatch<React.SetStateAction<string>>
 }
