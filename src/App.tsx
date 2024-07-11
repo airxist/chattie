@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import Create from "./routes/create/Create";
 
 const Login = lazy(() => import('./routes/onboarding/Login'))
 const Register = lazy(() => import('./routes/onboarding/Register'))
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/forgot_password" element={<Forgot />} />
         <Route path="/reset_password" element={<Reset />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/create_space" element={<Create />} />
       </Routes>
     </Suspense>
   );

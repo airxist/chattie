@@ -1,16 +1,23 @@
 import { useState } from "react";
 import avatar from "../../assets/images/avatar.jpg";
-import ProfileBoard from "../../shared/ProfileBoard";
+import TemplateBoard from "../../shared/TemplateBoard";
 import Button from "../../components/Button";
 import { spaces } from "../../constants";
 import UserSpaces from "../../components/UserSpaces";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+
+  const navigateToCreate = () => {
+    navigate('/create_space');
+  }
+
   const [online] = useState(true);
   const [user] = useState(true);
 
   return (
-    <ProfileBoard>
+    <TemplateBoard topClass="border-b border-b-slate-300">
       <div className="px-5 md:px-32 py-3 md:py-10">
           <div className="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-5 md:items-center">
             <div className="w-20 md:w-40 aspect-square">
@@ -42,7 +49,7 @@ const Profile = () => {
           <div className="border-t border-slate-300 mt-10 pt-5">
             <div className="flex items-center space-x-10">
               <p className="font-semibold">{user ? 'My Spaces' : 'Common Spaces'}</p>
-              {user && <Button text="+Add new space" className="text-primary_purple font-medium" />}
+              {user && <Button text="+Add new space" className="text-primary_purple font-medium" handleClick={navigateToCreate} />}
             </div>
             <div>
               {
@@ -59,7 +66,7 @@ const Profile = () => {
             </div>
           </div>
       </div>
-    </ProfileBoard>
+    </TemplateBoard>
   );
 };
 

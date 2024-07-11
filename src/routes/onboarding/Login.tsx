@@ -4,9 +4,13 @@ import { useState } from "react";
 import Button from "../../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Location from "../../components/Switching";
+import { useGlobalContext } from "../../utils/context";
+import { AppContextType } from "../../constants/interfaces";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const { showAlarm } = useGlobalContext() as AppContextType;
 
   const [formData, setFormData] = useState({
     email: "",
@@ -26,7 +30,11 @@ const Login = () => {
 
   const handleSubmit = ((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // const { email, password } = formData;
+    const { email, password } = formData;
+    if (!email || !password) {
+      showAlarm('danger', 'please input email and password');
+      return;
+    }
     navigate('/profile')
   })
 

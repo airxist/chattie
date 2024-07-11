@@ -1,20 +1,23 @@
 import Back from "../assets/icons/Back"
+import Button from "./Button"
 
-type headerProps = {
+type TopBarProps = {
   className?: string
 }
 
-const Header = ({
+const TopBar = ({
   className
-} : headerProps) => {
+} : TopBarProps) => {
   return (
-    <header className={className}>
+    <header className={`${className} px-5 md:px-32 py-5`}>
       <div className="flex items-center space-x-3">
-        <Back />
+        <Button>
+          <Back />
+        </Button>
         <h2 className="font-semibold">Some Title</h2>
       </div>
     </header>
   )
 }
 
-export default Header
+export default TopBar

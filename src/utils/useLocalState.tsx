@@ -1,37 +1,37 @@
 import { useState } from "react"
 
 const useLocalState = () : {
-  alert: {state: boolean,type: string,message: string},
-  showAlert: (type: string, message: string) => void,
-    hideAlert: () => void,
+  alarm: {state: boolean,type: string,message: string},
+  showAlarm: (type: string, message: string) => void,
+    hideAlarm: () => void,
     success: boolean,
     setSuccess: React.Dispatch<React.SetStateAction<boolean>>,
     loading: boolean,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
 } => {
-  const [alert, setAlert] = useState({
-    state: false,
+  const [alarm, setAlarm] = useState({
+    state: true,
     type: 'danger',
     message: 'The Alert'
   });
 
-  const showAlert = (type = 'danger', message : string) => {
-    setAlert({
+  const showAlarm = (type = 'danger', message : string) => {
+    setAlarm({
       state: true,
       type,
       message
     })
   }
 
-  const hideAlert = () => setAlert({state: false, type: 'danger', message: ''})
+  const hideAlarm = () => setAlarm({state: false, type: 'danger', message: ''})
 
   const [success, setSuccess] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
-  return {alert,
-    showAlert,
-    hideAlert,
+  return {alarm,
+    showAlarm,
+    hideAlarm,
     success,
     setSuccess,
     loading,

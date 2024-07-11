@@ -1,7 +1,7 @@
 import backgroundImage from "../assets/images/bg.jpg";
 import Alert from "../components/Alert";
 import Bars from "../components/Bars";
-import useLocalState from "../utils/useLocalState";
+import { AppContextType, useGlobalContext } from "../utils/context";
 
 const Onboarding = ({
   className,
@@ -12,9 +12,7 @@ const Onboarding = ({
   children: React.ReactNode;
   showBackground?: boolean;
 }) => {
-  const {
-    alert: { state },
-  } = useLocalState();
+  const { alarm: {state}} = useGlobalContext() as AppContextType;
 
   return (
     <section
