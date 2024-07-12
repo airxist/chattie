@@ -10,14 +10,17 @@ import { useGSAP } from '@gsap/react';
 
 const Create = () => {
   const navigate = useNavigate();
+
   const FormRef = useRef(null);
+
   const location = useLocation();
-  const { setTitle } = useGlobalContext() as AppContextType;
+
+  const { setTitle, direction } = useGlobalContext() as AppContextType;
   const [screenSize, setScreenSize] = useState(window.innerWidth < 600 ? 'small' : 'large')
 
   useGSAP(() => {
     gsap.from(FormRef.current, {
-      x: 1000,
+      x: direction === 'forward' ? 1000 : -1000,
       duration: .5,
       autoAlpha: 0,
     })
@@ -26,7 +29,7 @@ const Create = () => {
   const handleSubmit = ((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     gsap.to(FormRef.current, {
-      x: -1000,
+      x: direction === 'forward' ? -1000 : 1000,
       autoAlpha: 1,
       delay: .5,
       onComplete () {
@@ -53,7 +56,7 @@ const Create = () => {
   }, [])
 
   return (
-    <TemplateBoard topClass='border-b border-b-slate-500 absolute top-0 left-0 z-10 bg-white w-full' showBars>
+    <TemplateBoard topClass='border-b border-b-slate-500 absolute top-0 left-0 z-10 bg-white w-full' topBarRef={FormRef} showBars>
       <div className='px-5 md:px-32 min-h-screen pt-28 md:flex items-start justify-center overflow-hidden'>
         
         <form ref={FormRef} className='md:w-[37rem] flex flex-col space-y-3 md:' onSubmit={handleSubmit}>

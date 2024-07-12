@@ -11,5 +11,7 @@ export interface AppContextType {
   loading: boolean,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   title: string,
-  setTitle: React.Dispatch<React.SetStateAction<string>>
+  setTitle: React.Dispatch<React.SetStateAction<string>>,
+  direction: string,
+  setDirection: React.Dispatch<React.SetStateAction<string>>
 }

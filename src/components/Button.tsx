@@ -15,9 +15,7 @@ const Button = ({ text, className, handleClick, children }: { text?: string; cla
 
   const Back = () => {
     return (
-      <button className={`${className} p-2`} onClick={() => {
-        window.history.back();
-      }}>
+      <button className={`${className} p-2`} onClick={handleClick}>
         { children }
       </button>
     )

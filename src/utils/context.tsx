@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { createContext } from "react";
 import useLocalState from './useLocalState';
 import { ReactChildren, AppContextType } from "../constants/interfaces";
@@ -19,6 +19,8 @@ const AppProvider = ({children}: ReactChildren) => {
     title,
     setTitle
   } = useLocalState();
+  
+  const [direction, setDirection] = useState('forward');
 
   return (
     <AppContext.Provider value={{alarm,
@@ -29,7 +31,9 @@ const AppProvider = ({children}: ReactChildren) => {
       loading,
       setLoading,
       title,
-      setTitle
+      setTitle,
+      direction,
+      setDirection
     }}>
       {children}
     </AppContext.Provider>
