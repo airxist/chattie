@@ -8,6 +8,8 @@ import AddMember from './routes/create/AddMember';
 import WhoCanSee from './routes/create/WhoCanSee';
 import Chat from './routes/chatboard/Chat';
 import ChatBoard from './shared/ChatBoard';
+import DMs from './routes/chatboard/DMs';
+import Anonymous from './routes/chatboard/Anonymous';
 // onboarding
 const Login = lazy(() => import('./routes/onboarding/Login'));
 const Register = lazy(() => import('./routes/onboarding/Register'));
@@ -39,6 +41,8 @@ const App = () => {
         </Route>
         <Route path="/chat-board" element={<ChatBoard />}>
           <Route index element={<Chat />} />
+          <Route path='dms' element={<DMs />} />
+          <Route path='anonymous' element={<Anonymous />} />
         </Route>
       </Routes>
     </Suspense>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.divide-space-nav {
+  height: calc(100vh - (70px + 110px));
+}
+
 @layer base {
   h1 {
     @apply font-semibold text-center capitalize text-3xl;
