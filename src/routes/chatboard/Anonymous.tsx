@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Anonymous = () => {
   return (
     <section className="main-board">

@@ -14,7 +14,7 @@ const TemplateBoard = ({
 }) => {
   const Template = () => {
     return (
-      <section className="min-h-screen">
+      <section className="h-screen">
         <TopBar className={topClass} reference={topBarRef} />
         {showBars && <Bars className="rotate-180 bottom-0 left-0" />}
         {children}
