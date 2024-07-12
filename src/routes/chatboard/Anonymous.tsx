@@ -2,9 +2,9 @@ import React from 'react'
 
 const Anonymous = () => {
   return (
-    <div>
+    <section className="main-board">
       This is the anonymous
-    </div>
+    </section>
   )
 }
 

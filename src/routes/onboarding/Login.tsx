@@ -35,7 +35,7 @@ const Login = () => {
       showAlarm('danger', 'please input email and password');
       return;
     }
-    navigate('/profile');
+    navigate('/chat-board');
   };
 
   return (

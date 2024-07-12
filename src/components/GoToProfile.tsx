@@ -6,8 +6,8 @@ const GoToProfile = ({
   className,
   showLogoutBtn,
 }: {
-  className: string;
-  showLogoutBtn: boolean;
+  className?: string;
+  showLogoutBtn?: boolean;
 }) => {
   const [user] = useState("Joey Harran");
   return (

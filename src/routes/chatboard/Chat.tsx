@@ -1,5 +1,7 @@
+
 const Chat = () => {
-  return <section className="container">This is the chatboard</section>;
+  return <section className="main-board bg-dark">
+  </section>;
 };
 
 export default Chat;

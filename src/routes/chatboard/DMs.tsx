@@ -1,5 +1,5 @@
 const DMs = () => {
-  return <div>This is the Dms</div>;
+  return <section className="main-board">This is the Dms</section>;
 };
 
 export default DMs;
