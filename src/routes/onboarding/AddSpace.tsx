@@ -1,6 +1,6 @@
-import Button from "../../components/Button";
-import FormRow from "../../components/FormRow";
-import Onboarding from "../../shared/Onboarding";
+import Button from '../../components/Button';
+import FormRow from '../../components/FormRow';
+import Onboarding from '../../shared/Onboarding';
 
 const AddSpace = () => {
   return (

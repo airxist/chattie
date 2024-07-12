@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from 'react-router-dom';
 
 const ShareCreate = () => {
   return (
     <>
       <Outlet />
     </>
-  )
-}
+  );
+};
 
-export default ShareCreate
+export default ShareCreate;

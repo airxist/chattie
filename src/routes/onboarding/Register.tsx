@@ -1,22 +1,22 @@
-import FormRow from "../../components/FormRow";
-import Onboarding from "../../shared/Onboarding";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
-import Location from "../../components/Switching";
+import FormRow from '../../components/FormRow';
+import Onboarding from '../../shared/Onboarding';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '../../components/Button';
+import Location from '../../components/Switching';
 
 const Register = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    password: "",
+    fullname: '',
+    email: '',
+    password: '',
   });
 
-  const handleChange = (e:  React.ChangeEvent<HTMLInputElement>): void => {
-    const currentName : string = e.currentTarget.name;
-    const currentValue : string = e.currentTarget.value;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const currentName: string = e.currentTarget.name;
+    const currentValue: string = e.currentTarget.value;
     setFormData((prev) => {
       return {
         ...prev,
@@ -25,17 +25,19 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = ((event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("I am handling submit")
-    navigate('/verify', {})
-  })
+    console.log('I am handling submit');
+    navigate('/verify', {});
+  };
 
   return (
     <Onboarding showBackground>
       <div className="w-[377px]">
         <Location />
-        <form className="flex flex-col items-center justify-between gap-9 w-full" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col items-center justify-between gap-9 w-full"
+          onSubmit={handleSubmit}>
           <FormRow
             label="fullname"
             labelMain="Full Name"
@@ -70,7 +72,10 @@ const Register = () => {
           <Button text="Register" className="btn primary-btn w-full" />
           {/* reroutint text */}
           <p className="text-sm self-start">
-            Already have an account? <Link to="login" className="text-primary_purple">Login</Link>
+            Already have an account?{' '}
+            <Link to="login" className="text-primary_purple">
+              Login
+            </Link>
           </p>
         </form>
       </div>

@@ -1,12 +1,12 @@
-import Onboarding from "../../shared/Onboarding";
-import FormRow from "../../components/FormRow";
-import { FormEvent } from "react";
-import Button from "../../components/Button";
+import Onboarding from '../../shared/Onboarding';
+import FormRow from '../../components/FormRow';
+import { FormEvent } from 'react';
+import Button from '../../components/Button';
 
 const Reset = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <Onboarding>
@@ -29,7 +29,7 @@ const Reset = () => {
         </form>
       </div>
     </Onboarding>
-  )
-}
+  );
+};
 
-export default Reset
+export default Reset;

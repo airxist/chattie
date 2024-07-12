@@ -1,6 +1,6 @@
-import Button from "../../components/Button";
-import FormRow from "../../components/FormRow";
-import Onboarding from "../../shared/Onboarding";
+import Button from '../../components/Button';
+import FormRow from '../../components/FormRow';
+import Onboarding from '../../shared/Onboarding';
 
 const Selection = () => {
   return (
@@ -23,10 +23,7 @@ const Selection = () => {
           <div className="bg-white p-10 mt-3">
             This is for when we add a friend or team member
           </div>
-          <Button
-            text="Done"
-            className="my-3 w-full btn primary-btn"
-          />
+          <Button text="Done" className="my-3 w-full btn primary-btn" />
           <Button text="Skip" />
         </div>
       </div>

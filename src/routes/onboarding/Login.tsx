@@ -1,11 +1,11 @@
-import Onboarding from "../../shared/Onboarding"
-import FormRow from "../../components/FormRow";
-import { useState } from "react";
-import Button from "../../components/Button";
-import { Link, useNavigate } from "react-router-dom";
-import Location from "../../components/Switching";
-import { useGlobalContext } from "../../utils/context";
-import { AppContextType } from "../../constants/interfaces";
+import Onboarding from '../../shared/Onboarding';
+import FormRow from '../../components/FormRow';
+import { useState } from 'react';
+import Button from '../../components/Button';
+import { Link, useNavigate } from 'react-router-dom';
+import Location from '../../components/Switching';
+import { useGlobalContext } from '../../utils/context';
+import { AppContextType } from '../../constants/interfaces';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,13 +13,13 @@ const Login = () => {
   const { showAlarm } = useGlobalContext() as AppContextType;
 
   const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  })
+    email: '',
+    password: '',
+  });
 
-  const handleChange = (event:  React.ChangeEvent<HTMLInputElement>): void => {
-    const currentName : string = event.currentTarget.name;
-    const currentValue : string = event.currentTarget.value;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const currentName: string = event.currentTarget.name;
+    const currentValue: string = event.currentTarget.value;
     setFormData((prev) => {
       return {
         ...prev,
@@ -28,21 +28,23 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = ((event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { email, password } = formData;
     if (!email || !password) {
       showAlarm('danger', 'please input email and password');
       return;
     }
-    navigate('/profile')
-  })
+    navigate('/profile');
+  };
 
   return (
     <Onboarding showBackground>
       <div className="w-96">
         <Location />
-        <form className="flex flex-col items-center justify-between gap-9 w-full" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col items-center justify-between gap-9 w-full"
+          onSubmit={handleSubmit}>
           <FormRow
             label="email"
             labelMain="email"
@@ -60,14 +62,19 @@ const Login = () => {
             handleChange={handleChange}
             route="/forgot_password"
           />
-        {/* submit button */}
-        <Button text="Login" className="btn primary-btn w-full" />
-        {/* reroutint text */}
-        <p className="text-sm self-start">Dont have an account? <Link to="/" className="text-primary_purple">Register</Link></p>
+          {/* submit button */}
+          <Button text="Login" className="btn primary-btn w-full" />
+          {/* reroutint text */}
+          <p className="text-sm self-start">
+            Dont have an account?{' '}
+            <Link to="/" className="text-primary_purple">
+              Register
+            </Link>
+          </p>
         </form>
       </div>
     </Onboarding>
   );
-}
+};
 
-export default Login
+export default Login;

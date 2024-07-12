@@ -1,8 +1,8 @@
-import backgroundImage from "../assets/images/bg.jpg";
-import Alert from "../components/Alert";
-import Bars from "../components/Bars";
-import { useGlobalContext } from "../utils/context";
-import { AppContextType } from "../constants/interfaces";
+import backgroundImage from '../assets/images/bg.jpg';
+import Alert from '../components/Alert';
+import Bars from '../components/Bars';
+import { useGlobalContext } from '../utils/context';
+import { AppContextType } from '../constants/interfaces';
 
 const Onboarding = ({
   className,
@@ -13,12 +13,13 @@ const Onboarding = ({
   children: React.ReactNode;
   showBackground?: boolean;
 }) => {
-  const { alarm: {state}} = useGlobalContext() as AppContextType;
+  const {
+    alarm: { state },
+  } = useGlobalContext() as AppContextType;
 
   return (
     <section
-      className={`${className} || flex items-center justify-center h-screen`}
-    >
+      className={`${className} || flex items-center justify-center h-screen`}>
       <div className="relative flex-1 w-[50%] h-full px-10 py-10 flex items-center justify-center isolate">
         <Bars className="bottom-0 left-0 rotate-180" />
 

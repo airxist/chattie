@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 type FormRowProps = {
   joined?: boolean;
@@ -9,9 +9,9 @@ type FormRowProps = {
   value?: string;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   route?: string;
-  check?: boolean,
-  description?: string,
-  labelText?: string
+  check?: boolean;
+  description?: string;
+  labelText?: string;
 };
 
 const FormRow = ({
@@ -35,7 +35,9 @@ const FormRow = ({
             {labelMain}
           </label>
 
-          <Link to={`${route}`} className="text-primary_purple">Forgot {label}</Link>
+          <Link to={`${route}`} className="text-primary_purple">
+            Forgot {label}
+          </Link>
         </div>
         <div>
           <input
@@ -94,20 +96,32 @@ const FormRow = ({
             onChange={handleChange}
             className="h-12 px-5 w-4/5 rounded-lg"
           />
-          <input type="submit" value="Add" className="w-1/5 primary-btn rounded-lg" />
+          <input
+            type="submit"
+            value="Add"
+            className="w-1/5 primary-btn rounded-lg"
+          />
         </div>
       </div>
     );
   };
 
   const CheckBox = () => {
-    return <div className="input-container">
-      <label htmlFor={label}>{labelText}</label>
-      <input type={type} id={label} name={label} onChange={handleChange} />
-    </div>
-  }
+    return (
+      <div className="input-container">
+        <label htmlFor={label}>{labelText}</label>
+        <input type={type} id={label} name={label} onChange={handleChange} />
+      </div>
+    );
+  };
 
-  return route ? LinkingInput() : joined ? JoinedInput() : check ? CheckBox() : NonLinkingInput();
+  return route
+    ? LinkingInput()
+    : joined
+      ? JoinedInput()
+      : check
+        ? CheckBox()
+        : NonLinkingInput();
 };
 
 export default FormRow;

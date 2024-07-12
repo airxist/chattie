@@ -1,15 +1,15 @@
-import { FormEvent } from "react";
-import Button from "../../components/Button";
-import FormRow from "../../components/FormRow";
-import Onboarding from "../../shared/Onboarding";
-import { useNavigate } from "react-router-dom";
+import { FormEvent } from 'react';
+import Button from '../../components/Button';
+import FormRow from '../../components/FormRow';
+import Onboarding from '../../shared/Onboarding';
+import { useNavigate } from 'react-router-dom';
 
 const Forgot = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    navigate('/reset_password')
+    navigate('/reset_password');
   };
 
   return (

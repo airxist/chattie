@@ -10,9 +10,13 @@
   .bar {
     @apply bg-primary_purple-2;
   }
-  
+
   .input-container {
     @apply h-fit w-full;
+  }
+
+  .header {
+    @apply w-full h-[70px] border
   }
 
   input {
