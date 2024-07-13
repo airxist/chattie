@@ -1,5 +1,5 @@
-import Bars from '../components/Bars';
-import TopBar from '../components/TopBar';
+import Bars from "../components/Bars";
+import TopBar from "../components/TopBar";
 
 const TemplateBoard = ({
   children,
@@ -14,9 +14,9 @@ const TemplateBoard = ({
 }) => {
   const Template = () => {
     return (
-      <section className="h-screen">
+      <section className='h-screen'>
         <TopBar className={topClass} reference={topBarRef} />
-        {showBars && <Bars className="rotate-180 bottom-0 left-0" />}
+        {showBars && <Bars className='rotate-180 bottom-0 left-0' />}
         {children}
       </section>
     );

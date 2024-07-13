@@ -2,21 +2,46 @@ import Anonymous from "../assets/icons/Anonymous";
 import Chat from "../assets/icons/Chat";
 import DMs from "../assets/icons/DMs";
 
+export const chatLists = [
+  {
+    username: "Ajayi Damilola",
+    date: "12-12-2024",
+    message:
+      "Hi Everyone, I am alone here  Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here ",
+    important: true,
+  },
+  {
+    username: "Daniel Kosoko",
+    date: "12-12-2024",
+    message:
+      "Hi Everyone, I am alone here  Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here ",
+    important: false,
+    replies: ['Daniel Kosoko', 'Josemaria', 'Airxistence', 'Joel', 'kehinde']
+  },
+  {
+    username: "Joshua Kehinde",
+    date: "12-12-2024",
+    message:
+      "Hi Everyone, I am alone here  Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here Hi Everyone, I am alone here ",
+    important: false,
+  },
+];
+
 export const navigateChat = [
   {
     icon: Chat(),
     title: "Chats",
-    to: '/chat-board'
+    to: "/chat-board",
   },
   {
     icon: DMs(),
     title: "DMs",
-    to: '/chat-board/dms'
+    to: "/chat-board/dms",
   },
   {
     icon: Anonymous(),
     title: "Anonymous",
-    to: '/chat-board/anonymous'
+    to: "/chat-board/anonymous",
   },
 ];
 
