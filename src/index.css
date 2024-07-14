@@ -15,17 +15,38 @@
     height: calc(100vh - 70px)
   }
 }
+
 @layer base {
   h1 {
-    @apply font-semibold text-center capitalize text-3xl;
+    @apply font-bold capitalize;
+  }
+
+  .onboard-title {
+    @apply md:text-center text-[28px] lg:text-3xl;
   }
 
   .bar {
     @apply bg-primary_purple-2;
   }
 
+  .onboard-container {
+    @apply w-[377px];
+  }
+
+  .onboard-form {
+    @apply flex flex-col items-center justify-between space-y-4 lg:space-y-6 w-full
+  }
+
+  .alert {
+    @apply absolute right-6 top-20 transition px-3 py-2 rounded-md bg-white border shadow-2xl flex items-center space-x-3
+  }
+
+  .link {
+    @apply text-primary_purple
+  }
+
   .input-container {
-    @apply h-fit w-full;
+    @apply w-full min-h-[72px];
   }
 
   .header {
@@ -33,7 +54,11 @@
   }
 
   input {
-    @apply bg-primary_purple-1 outline-none border-none focus:outline-primary_purple;
+    @apply bg-primary_purple-1 outline-none border-none;
+  }
+
+  .inputation {
+    @apply h-12 px-5 w-full rounded-lg
   }
 
   .btn {
@@ -42,5 +67,9 @@
 
   .primary-btn {
     @apply bg-primary_purple text-white
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center
   }
 }

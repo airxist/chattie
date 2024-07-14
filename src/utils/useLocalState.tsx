@@ -12,7 +12,7 @@ const useLocalState = (): {
   setTitle: React.Dispatch<React.SetStateAction<string>>;
 } => {
   const [alarm, setAlarm] = useState({
-    state: true,
+    state: false,
     type: 'danger',
     message: 'The Alert',
   });

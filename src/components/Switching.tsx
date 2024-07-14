@@ -16,13 +16,13 @@ const Location = ({
   const OnboardSwitch = () => {
     return (
       <div
-        className={`${className || "mb-5"} flex divide-x-2 divide-primary_purple-3`}
+        className={`${className || "mb-2"} flex divide-x-2 divide-primary_purple-3`}
       >
         {switching.map((item) => (
           <Link
             to={item.route}
             key={item.name}
-            className={` flex items-center justify-center p-1 capitalize ${location.pathname === item.route ? "text-lg font-medium" : "text-sm font-semibold"}`}
+            className={`flex-center p-1 capitalize ${location.pathname === item.route ? "text-xl font-medium" : "text-sm font-black"}`}
           >
             {item.name}
           </Link>

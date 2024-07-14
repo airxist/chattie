@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 type FormRowProps = {
   joined?: boolean;
@@ -11,6 +11,7 @@ type FormRowProps = {
   route?: string;
   check?: boolean;
   description?: string;
+  descriptionClass?: string;
   labelText?: string;
 };
 
@@ -25,17 +26,18 @@ const FormRow = ({
   route,
   check,
   description,
+  descriptionClass,
   labelText,
 }: FormRowProps) => {
   const LinkingInput = () => {
     return (
-      <div className="input-container">
-        <div className="flex items-center justify-between">
-          <label htmlFor={label} className="capitalize">
+      <div className='input-container'>
+        <div className='flex items-center justify-between'>
+          <label htmlFor={label} className='capitalize text-sm font-bold'>
             {labelMain}
           </label>
 
-          <Link to={`${route}`} className="text-primary_purple">
+          <Link to={`${route}`} className='link text-sm font-light'>
             Forgot {label}
           </Link>
         </div>
@@ -47,7 +49,7 @@ const FormRow = ({
             placeholder={placeholder}
             value={value}
             onChange={handleChange}
-            className="h-12 px-5 w-full rounded-lg"
+            className='inputation'
           />
         </div>
       </div>
@@ -56,13 +58,13 @@ const FormRow = ({
 
   const NonLinkingInput = () => {
     return (
-      <div className="input-container">
-        <div className="flex items-center justify-between">
-          <label htmlFor={label} className="capitalize">
+      <div className='input-container'>
+        <div className='flex items-center justify-between'>
+          <label htmlFor={label} className='capitalize text-sm font-bold'>
             {labelMain}
           </label>
         </div>
-        {description && <p className="text-sm text-slate-400">{description}</p>}
+        {description && <p className={`${descriptionClass || 'text-sm text-slate-400'}`}>{description}</p>}
         <div>
           <input
             type={type}
@@ -71,7 +73,7 @@ const FormRow = ({
             placeholder={placeholder}
             value={value}
             onChange={handleChange}
-            className="h-12 px-5 w-full rounded-lg"
+            className='inputation'
           />
         </div>
       </div>
@@ -80,13 +82,13 @@ const FormRow = ({
 
   const JoinedInput = () => {
     return (
-      <div className="input-container">
-        <div className="flex items-center justify-between">
-          <label htmlFor={label} className="capitalize">
+      <div className='input-container'>
+        <div className='flex items-center justify-between'>
+          <label htmlFor={label} className='capitalize text-sm font-bold'>
             {labelMain}
           </label>
         </div>
-        <div className="flex space-x-1">
+        <div className='flex space-x-1'>
           <input
             type={type}
             id={label}
@@ -94,12 +96,12 @@ const FormRow = ({
             placeholder={placeholder}
             value={value}
             onChange={handleChange}
-            className="h-12 px-5 w-4/5 rounded-lg"
+            className='h-12 px-5 w-4/5 rounded-lg'
           />
           <input
-            type="submit"
-            value="Add"
-            className="w-1/5 primary-btn rounded-lg"
+            type='submit'
+            value='Add'
+            className='w-1/5 primary-btn rounded-lg'
           />
         </div>
       </div>
@@ -108,7 +110,7 @@ const FormRow = ({
 
   const CheckBox = () => {
     return (
-      <div className="input-container">
+      <div className='input-container'>
         <label htmlFor={label}>{labelText}</label>
         <input type={type} id={label} name={label} onChange={handleChange} />
       </div>

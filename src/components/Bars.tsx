@@ -1,10 +1,19 @@
+const barData: { className: string }[] = [
+  { className: "bar h-2/6" },
+  { className: "bar h-4/6" },
+  { className: "bar h-full" },
+];
+
 const Bars = ({ className }: { className: string }) => {
   return (
     <div
-      className={`${className} absolute h-[7rem] w-60 flex justify-between -z-10`}>
-      <div className="bar h-3/6 w-[calc(15rem/3.5)]"></div>
-      <div className="bar h-3/4 w-[calc(15rem/3.5)]"></div>
-      <div className="bar h-full w-[calc(15rem/3.5)]"></div>
+      className={`${className} absolute h-[113px] md:h-[214px] w-[9rem] md:w-[20rem] flex justify-between -z-10`}
+    >
+      {barData.map((bar, index) => {
+        return (
+          <div key={index} className={`${bar.className} w-[calc(9rem/3.5)] md:w-[calc(20rem/3.5)]`} />
+        );
+      })}
     </div>
   );
 };
