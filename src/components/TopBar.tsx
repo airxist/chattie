@@ -32,7 +32,7 @@ const TopBar = ({ className, reference, chat, onboard }: TopBarProps) => {
             <Back />
           </Button>
 
-          <h2 className='font-bold text-xl'>{title}</h2>
+          <h2 className='font-bold text-sm lg:text-xl'>{title}</h2>
         </div>
       </header>
     );

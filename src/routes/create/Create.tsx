@@ -84,7 +84,7 @@ const Create = () => {
   }, []);
 
   return (
-    <div className='px-5 md:px-32 pt-28 md:pt-0 min-h-screen md:flex-center overflow-hidden'>
+    <div className=' border-8 px-5 md:px-32 pt-28 md:pt-0 min-h-screen md:flex-center overflow-hidden'>
       <form
         ref={FormRef}
         className='w-full md:w-[37rem] flex flex-col space-y-3 md:'
