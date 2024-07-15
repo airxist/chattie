@@ -22,7 +22,7 @@ const Location = ({
           <Link
             to={item.route}
             key={item.name}
-            className={`flex-center p-1 capitalize ${location.pathname === item.route ? "text-xl font-medium" : "text-sm font-black"}`}
+            className={`flex-center p-1 capitalize ${location.pathname === item.route ? "text-xl font-medium text-primary_purple-4" : "text-sm font-black"}`}
           >
             {item.name}
           </Link>

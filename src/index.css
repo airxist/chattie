@@ -26,12 +26,16 @@
     @apply font-inter
   }
 
-  h1 {
-    @apply font-bold capitalize;
+  .onboard-title {
+    @apply md:text-center text-[28px];
   }
 
-  .onboard-title {
-    @apply md:text-center text-[28px] lg:text-3xl;
+  .profile-title {
+    @apply text-xl
+  }
+
+  .title {
+    @apply font-bold capitalize  lg:text-3xl
   }
 
   .bar {
@@ -59,7 +63,7 @@
   }
 
   .link {
-    @apply text-primary_purple
+    @apply text-primary_purple hover:text-primary_purple-4
   }
 
   .input-container {
@@ -83,11 +87,11 @@
   }
 
   .primary-btn {
-    @apply bg-primary_purple text-white
+    @apply bg-primary_purple hover:bg-primary_purple-4 text-white
   }
 
   .secondary-btn {
-    @apply bg-dark-1 text-white
+    @apply bg-dark-1 hover:bg-dark-2 text-white
   }
 
   .description {

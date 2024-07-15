@@ -6,7 +6,7 @@ const Selection = () => {
   return (
     <Onboarding>
       <div className='max-w-[32rem] w-full'>
-        <h1 className='onboard-title'>
+        <h1 className='title onboard-title'>
           Add your team members or friends
         </h1>
         <div className="mt-3">

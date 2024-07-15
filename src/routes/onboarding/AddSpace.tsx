@@ -23,7 +23,7 @@ const AddSpace = () => {
   return (
     <Onboarding>
       <div className='w-[32rem]'>
-        <h1 className='onboard-title'>Create your own space</h1>
+        <h1 className='title onboard-title'>Create your own space</h1>
         <form
           className='my-3 flex flex-col space-y-5'
           onSubmit={(event) => event.preventDefault()}
