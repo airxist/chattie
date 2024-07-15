@@ -6,10 +6,10 @@ const Selection = () => {
   return (
     <Onboarding>
       <div className='max-w-[32rem] w-full'>
-        <h1 className='onboard-title border-2'>
+        <h1 className='onboard-title'>
           Add your team members or friends
         </h1>
-        <div>
+        <div className="mt-3">
           <form>
             <FormRow
               joined
