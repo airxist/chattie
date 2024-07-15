@@ -5,7 +5,7 @@ import Onboarding from "../../shared/Onboarding";
 const Selection = () => {
   return (
     <Onboarding>
-      <div className='max-w-[32rem] border-8 w-full'>
+      <div className='max-w-[32rem] w-full'>
         <h1 className='onboard-title border-2'>
           Add your team members or friends
         </h1>
