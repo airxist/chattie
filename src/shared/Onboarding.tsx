@@ -6,7 +6,6 @@ import { AppContextType } from "../constants/interfaces";
 import Logo from "../components/Logo";
 import TopBar from "../components/TopBar";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 const Onboarding = ({
   className,
@@ -21,18 +20,14 @@ const Onboarding = ({
     alarm: { state },
   } = useGlobalContext() as AppContextType;
 
-  useEffect(()=>{
-    console.log(state)
-  }, [])
-
   const { pathname } = useLocation();
 
   return (
     <section
       className={`${className} || flex items-center justify-center h-screen`}
     >
-      <div className='relative flex-1 w-[50%] h-full p-5 md:p-10 flex items-center justify-center isolate'>
-        <TopBar onboard className='absolute top-14 left-20' />
+      <div className='relative flex-1 w-[50%] min-h-full p-5 md:p-10 flex-center isolate overflow-hidden'>
+        <TopBar onboard className='absolute top-4 lg:top-14 lg:left-20' />
         {pathname === "/verify" ? (
           <></>
         ) : (
@@ -49,8 +44,9 @@ const Onboarding = ({
         {/* end of the alert */}
       </div>
       {showBackground && (
-        <div className='hidden lg:block w-[50%] h-full'>
-          <img src={backgroundImage} className='w-full h-full object-cover' />
+        <div className='hidden lg:block w-[50%] h-full relative'>
+          <div className="overlay"/>
+          <img src={backgroundImage} className='normal-img' />
         </div>
       )}
     </section>

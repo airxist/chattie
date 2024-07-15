@@ -42,6 +42,14 @@
     @apply w-[377px];
   }
 
+  .normal-img {
+    @apply w-full h-full object-cover
+  }
+
+  .overlay {
+    @apply absolute w-full h-full bg-gradient-to-b from-dark to-primary_purple-4 opacity-50
+  }
+
   .onboard-form {
     @apply flex flex-col items-center justify-between space-y-4 lg:space-y-6 w-full
   }
