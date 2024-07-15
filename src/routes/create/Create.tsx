@@ -37,6 +37,7 @@ const Create = () => {
   };
 
   const handleCheck = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    console.log(event.currentTarget.translate)
     setFormData((prev) => ({
       ...prev,
       anonymous: !prev.anonymous,
