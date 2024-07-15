@@ -35,6 +35,9 @@ export default {
           3: '#FDE8E8', // border
           4: '#A83636' // deep
         },
+      },
+      fontFamily: {
+        inter: ['inter']
       }
     },
   },

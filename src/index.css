@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: inter;
+  src: url('./assets/fonts/Inter-Regular.ttf');
+}
+
 .divide-space-nav {
   height: calc(100vh - (70px + 110px));
 }
@@ -17,6 +22,10 @@
 }
 
 @layer base {
+  html {
+    @apply font-inter
+  }
+
   h1 {
     @apply font-bold capitalize;
   }
@@ -67,6 +76,14 @@
 
   .primary-btn {
     @apply bg-primary_purple text-white
+  }
+
+  .secondary-btn {
+    @apply bg-dark-1 text-white
+  }
+
+  .description {
+    @apply text-xl font-normal text-dark-2
   }
 
   .flex-center {

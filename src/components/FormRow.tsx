@@ -64,7 +64,11 @@ const FormRow = ({
             {labelMain}
           </label>
         </div>
-        {description && <p className={`${descriptionClass || 'text-sm text-slate-400'}`}>{description}</p>}
+        {description && (
+          <p className={`${descriptionClass || "text-sm text-slate-400"} mb-2`}>
+            {description}
+          </p>
+        )}
         <div>
           <input
             type={type}
@@ -88,7 +92,12 @@ const FormRow = ({
             {labelMain}
           </label>
         </div>
-        <div className='flex space-x-1'>
+        {description && (
+          <p className={`${descriptionClass || "text-sm text-slate-400"} mb-2`}>
+            {description}
+          </p>
+        )}
+        <div className='flex space-x-3'>
           <input
             type={type}
             id={label}

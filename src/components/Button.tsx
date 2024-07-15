@@ -6,7 +6,7 @@ const Button = ({
 }: {
   text?: string;
   className?: string;
-  handleClick?: () => void;
+  handleClick?: (action?: string) => void;
   children?: React.ReactNode;
 }) => {
   const Btn = () => {
@@ -14,7 +14,7 @@ const Button = ({
       <button
         type="submit"
         className={`${className || 'block w-full bg-slate-400'} h-9 rounded-sm`}
-        onClick={handleClick}>
+        onClick={() => handleClick!()}>
         {text}
       </button>
     );
@@ -22,7 +22,7 @@ const Button = ({
 
   const Back = () => {
     return (
-      <button className={`${className} p-2`} onClick={handleClick}>
+      <button className={`${className} p-2`} onClick={() => handleClick!()}>
         {/* {icon && icon} */}
         {children}
       </button>

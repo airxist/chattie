@@ -5,8 +5,8 @@ import Onboarding from "../../shared/Onboarding";
 const Selection = () => {
   return (
     <Onboarding>
-      <div className='max-w-[30rem] w-full'>
-        <h1 className='mb-3 font-semibold text-3xl text-center'>
+      <div className='max-w-[32rem] border-8 w-full'>
+        <h1 className='onboard-title border-2'>
           Add your team members or friends
         </h1>
         <div>
@@ -15,7 +15,8 @@ const Selection = () => {
               joined
               type='email'
               label='email'
-              labelMain='You don’t want to be alone, why not bring in your friends or team for private discussion'
+              description='You don’t want to be alone, why not bring in your friends or team for private discussion'
+              descriptionClass="description"
               placeholder='JohnDoe@gmail.com'
             />
           </form>
@@ -24,7 +25,7 @@ const Selection = () => {
             This is for when we add a friend or team member
           </div>
           <Button text='Done' className='my-3 w-full btn primary-btn' />
-          <Button text='Skip' />
+          <Button text='Skip'className="btn secondary-btn w-full" />
         </div>
       </div>
     </Onboarding>
