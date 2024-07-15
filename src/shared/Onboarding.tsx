@@ -27,7 +27,7 @@ const Onboarding = ({
       className={`${className} || flex items-center justify-center h-screen`}
     >
       <div className='relative flex-1 w-[50%] min-h-full p-5 md:p-10 flex-center isolate overflow-hidden'>
-        <TopBar onboard className='absolute top-4 lg:top-14 lg:left-20' />
+        <TopBar onboard className='absolute top-4 left-5 lg:top-14 lg:left-20' />
         {pathname === "/verify" ? (
           <></>
         ) : (

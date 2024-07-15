@@ -4,7 +4,7 @@ import TemplateBoard from "../../shared/TemplateBoard";
 import Button from "../../components/Button";
 import { spaces } from "../../constants";
 import UserSpaces from "../../components/UserSpaces";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Bullet from "../../assets/icons/Bullet";
 
 const Profile = () => {
@@ -50,10 +50,12 @@ const Profile = () => {
                 text={user ? "Edit Profile" : "Message name"}
                 className={`text-primary_purple ${user ? "" : "border border-primary_purple rounded-lg py-1 px-3"} text-[0.75rem]`}
               />
-              <Button
-                text={user ? "Reset Password" : "Invite to a space"}
-                className={`${user ? "text-primary_red " : "text-primary_purple"} text-[0.75rem]`}
-              />
+              <Link to='/reset_password'>
+                <Button
+                  text={user ? "Reset Password" : "Invite to a space"}
+                  className={`${user ? "text-primary_red " : "text-primary_purple"} text-[0.75rem]`}
+                />
+              </Link>
             </div>
           </div>
         </div>

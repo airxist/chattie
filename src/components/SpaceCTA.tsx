@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const SpaceCTA = ({ user }: { user: boolean }) => {
@@ -6,12 +5,10 @@ const SpaceCTA = ({ user }: { user: boolean }) => {
     return (
       <div>
         <Button text='Edit' className='text-dark-1 text-[0.94rem]' />
-        <Link
-          to='/reset-password'
+        <Button
+          text='Remove'
           className='text-primary_red ml-5 text-[0.94rem]'
-        >
-          Remove
-        </Link>
+        />
       </div>
     );
   };

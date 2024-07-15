@@ -14,13 +14,14 @@ const Forgot = () => {
 
   return (
     <Onboarding>
-      <div>
-        <h1 className="mb-3">Forgot Password</h1>
+      <div className='max-w-[32rem] w-full'>
+        <h1 className="title onboard-title mb-3">Forgot Password</h1>
         <form onSubmit={handleSubmit}>
           <FormRow
             type="email"
             label="email"
-            labelMain="We will send confirmation code into your email"
+            description="We will send confirmation code into your email"
+            descriptionClass='description'
             placeholder="Email"
           />
           <Button text="Next" className="btn primary-btn mt-3 w-full" />
