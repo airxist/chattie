@@ -34,6 +34,7 @@ const useLocalState = (): {
 
   const [title, setTitle] = useState('Some Title');
 
+
   return {
     alarm,
     showAlarm,

@@ -1,45 +1,41 @@
-import Send from "../../assets/icons/Send";
-import Button from "../../components/Button";
+import { useEffect } from "react";
 import DisplayChats from "../../components/DisplayChats";
-import { chatLists } from "../../constants";
+import { AppContextType } from "../../constants/interfaces";
+import { useGlobalContext } from "../../utils/context";
+import TextArea from "../../components/TextArea";
+// import { chatLists } from "../../constants";
 
 const DMs = () => {
+  const { userSpaces, spaceToDisplay, chatData, chatPage, setChatPage } =
+    useGlobalContext() as AppContextType;
+
+  useEffect(() => {
+    const getSpaceDetail = userSpaces.find(
+      (space) => space.id === spaceToDisplay
+    );
+    const getChatListId = getSpaceDetail?.id;
+    const getChats = chatData.find((data) => data.id === getChatListId);
+    setChatPage({
+      id: getSpaceDetail!.id,
+      title: getSpaceDetail!.title,
+      description: getSpaceDetail!.description,
+      active: getSpaceDetail!.active,
+      chatLists: getChats?.channels.dms,
+    });
+  }, [spaceToDisplay]);
+
   return (
-    <section className='main-board'>
-      <div className='h-full relative'>
-        <div className='border h-full overflow-y-scroll pb-20 md:pb-32 pt-6 px-10 relative'>
-          <DisplayChats
-            description='At NielBs, all communication is strictly business based. Nothing outside busines'
-            chatList={chatLists}
-            typeOfChatBox="dm"
-          />
-        </div>
-        
-        <div className="px-10 absolute bottom-0 md:bottom-10 w-full">
-          <div className='border overflow-hidden border-slate-400 rounded-xl flex items-end'>
-            <textarea
-              name='message'
-              id='message'
-              className='h-[48px] resize-none w-11/12 border-none outline-none text-sm p-3'
-              placeholder='Any programme today???'
-              onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-                const target = event.currentTarget;
-                target.style.height = "48px";
-                const scrollHeight = event.currentTarget.scrollHeight;
-                if (scrollHeight >= 100) {
-                  target.style.height = "100px";
-                  return;
-                }
-                target.style.height = scrollHeight + "px";
-              }}
-            ></textarea>
-            <Button className='w-1/12 h-[48px] bg-yellow-300 flex items-center justify-center'>
-              <Send />
-            </Button>
-          </div>
-        </div>
+    <>
+      <div className='border h-full overflow-y-scroll pb-20 md:pb-32 pt-6 chat-pad relative'>
+        <DisplayChats
+          description={chatPage.description}
+          chatList={chatPage.chatLists}
+          typeOfChatBox='dm'
+        />
       </div>
-    </section>
+
+      <TextArea show />
+    </>
   );
 };
 

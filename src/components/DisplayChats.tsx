@@ -1,15 +1,10 @@
+import { chatTemplate } from "../constants/interfaces";
 import ChatBox from "./ChatBox";
 import Switching from "./Switching";
 
 interface DisplayChatsProps {
   description?: string;
-  chatList?: {
-    username: string;
-    date: string;
-    message: string;
-    important: boolean;
-    replies?: string[];
-  }[];
+  chatList?: chatTemplate[];
   addSwitch?: boolean;
   typeOfChatBox?: string;
 }

@@ -1,11 +1,11 @@
-import { useState } from "react";
-import avatar from "../../assets/images/avatar.jpg";
+// import avatar from "../../assets/images/avatar.jpg";
 import TemplateBoard from "../../shared/TemplateBoard";
 import Button from "../../components/Button";
-import { spaces } from "../../constants";
 import UserSpaces from "../../components/UserSpaces";
 import { Link, useNavigate } from "react-router-dom";
 import Bullet from "../../assets/icons/Bullet";
+import { useGlobalContext } from "../../utils/context";
+import { AppContextType, UserType } from "../../constants/interfaces";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -14,8 +14,9 @@ const Profile = () => {
     navigate("/create_space");
   };
 
-  const [online] = useState(false);
-  const [user] = useState(true);
+  const { user, userSpaces } = useGlobalContext() as AppContextType;
+
+  const {fullname, email, id, online, profile} = user as UserType
 
   return (
     <TemplateBoard topClass='border-b border-b-primary_purple-3'>
@@ -23,7 +24,7 @@ const Profile = () => {
         <div className='flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-5 md:items-center'>
           <div className='w-20 md:w-40 aspect-square'>
             <img
-              src={avatar}
+              src={profile}
               alt='avatar'
               className='w-full h-full object-cover object-center'
             />
@@ -42,8 +43,9 @@ const Profile = () => {
               </span>{" "}
               {online ? "Online" : "Offline"}
             </p>
-            <h4 className='title profile-title'>Titilope Adewumi</h4>
-            <p className='text-sm'>titilopeade@gmail.com</p>
+            <h4 className='title profile-title'>{fullname}</h4>
+            <p className='text-sm'>{email}</p>
+            <p className='text-sm'>ID: {id}</p>
             {user && <p className='italic text-sm'>admin</p>}
             <div className='flex items-center space-x-4 mt-2'>
               <Button
@@ -74,14 +76,14 @@ const Profile = () => {
             )}
           </div>
           <div>
-            {spaces.map((space, index) => {
+            {userSpaces.map((space, index) => {
               return (
                 <UserSpaces
                   key={space.id}
                   {...space}
                   className={`${index > 0 && "mt-3"}`}
                   show
-                  user={user}
+                  // user={user}
                 />
               );
             })}

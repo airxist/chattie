@@ -26,6 +26,10 @@
     @apply font-inter
   }
 
+  .chat-pad {
+    @apply px-5 lg:px-16
+  }
+
   .onboard-title {
     @apply md:text-center text-[28px];
   }

@@ -1,6 +1,9 @@
+import { AppContextType } from "../constants/interfaces";
+import { useGlobalContext } from "../utils/context";
 import Button from "./Button";
 
-const SpaceCTA = ({ user }: { user: boolean }) => {
+const SpaceCTA = () => {
+  const { user } = useGlobalContext() as AppContextType;
   const UserCTA = () => {
     return (
       <div>

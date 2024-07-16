@@ -10,7 +10,8 @@ import { AppContextType } from "../../constants/interfaces";
 const Login = () => {
   const navigate = useNavigate();
 
-  const { showAlarm } = useGlobalContext() as AppContextType;
+  const { showAlarm, registeredUsers, loginUser, setUserSpaces, spaces, setSpaceToDisplay } =
+    useGlobalContext() as AppContextType;
 
   const [formData, setFormData] = useState({
     email: "",
@@ -31,10 +32,41 @@ const Login = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { email, password } = formData;
+
     if (!email || !password) {
       showAlarm("danger", "please input email and password");
       return;
     }
+    // check database for the user
+    const findUser = registeredUsers.find(
+      (user) => user.email === email && user.password === password
+    );
+    // if user does not exist
+    if (!findUser) {
+      showAlarm("danger", "Incorrect inputs");
+      return;
+    }
+    // check user verification
+    if (!findUser.isVerified) {
+      showAlarm("danger", "Please verify your account");
+      return;
+    }
+    const { id, fullname, profile } = findUser;
+    // set up user spaces
+    const getUserSpaces = spaces.filter((space) => {
+      return space.members.find((member) => member === fullname);
+    }).map((userSpace, index) => {
+      return index === 0 ? {...userSpace, active: true} : {...userSpace}
+    });
+    // update id of space to be displayed first
+    const getIdOfSpaceToDisplay = getUserSpaces[0].id;
+
+
+    setSpaceToDisplay(getIdOfSpaceToDisplay);
+    setUserSpaces(getUserSpaces);
+    // login user action
+    loginUser(id, fullname, email, profile!);
+
     navigate("/chat-board");
   };
 
@@ -42,10 +74,7 @@ const Login = () => {
     <Onboarding showBackground>
       <div className='onboard-container'>
         <Location />
-        <form
-          className='onboard-form'
-          onSubmit={handleSubmit}
-        >
+        <form className='onboard-form' onSubmit={handleSubmit}>
           <FormRow
             label='email'
             labelMain='email'

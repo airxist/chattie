@@ -9,19 +9,20 @@ const ChatBox = ({
   replies,
   type,
 }: {
-  username: string;
+  username?: string;
   date: string;
   message: string;
   important?: boolean;
   replies?: string[];
   type?: string;
 }) => {
+  // console.log(important);
   const Chats = () => {
     return (
       <div className='flex space-x-4 border bg-primary_purple-1 rounded-md p-3'>
         <div>
           <span className='size-7 bg-primary_purple-3 text-primary_purple3 flex items-center justify-center rounded-full'>
-            {username.substring(0, 1)}
+            {username?.substring(0, 1)}
           </span>
         </div>
         <div className='flex flex-col space-y-1'>
@@ -48,7 +49,7 @@ const ChatBox = ({
       <div className='flex space-x-4 border bg-primary_purple-1 rounded-md p-3'>
         <div>
           <span className='size-7 bg-primary_purple-3 text-primary_purple3 flex items-center justify-center rounded-full'>
-            {username.substring(0, 1)}
+            {username?.substring(0, 1)}
           </span>
         </div>
         <div className='flex flex-col space-y-1'>

@@ -40,7 +40,7 @@ const TopBar = ({ className, reference, chat, onboard }: TopBarProps) => {
 
   const ChatTopBar = () => {
     return (
-      <header className={`${className} h-[70px] px-5 py-5`}>
+      <header className={`${className} h-[70px] chat-pad py-5`}>
         <div className='flex items-center justify-between'>
           <h2 className='font-bold text-2xl'>{title}</h2>
           <GoToProfile usernameClass='hidden md:block' />
