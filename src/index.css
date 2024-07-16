@@ -30,6 +30,18 @@
     @apply px-5 lg:px-16
   }
 
+  .chat-username {
+    @apply font-semibold text-sm;
+  }
+
+  .chat-date {
+    @apply font-light text-dark-1 text-[0.75rem]
+  }
+
+  .chat-msg {
+    @apply text-[0.82rem] text-dark-2 font-normal
+  }
+
   .onboard-title {
     @apply md:text-center text-[28px];
   }
@@ -39,7 +51,7 @@
   }
 
   .title {
-    @apply font-bold capitalize  lg:text-3xl
+    @apply font-bold capitalize lg:text-3xl
   }
 
   .bar {

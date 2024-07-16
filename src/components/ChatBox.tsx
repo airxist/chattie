@@ -27,15 +27,18 @@ const ChatBox = ({
         </div>
         <div className='flex flex-col space-y-1'>
           <div className='flex items-center space-x-4'>
-            <h2 className='font-semibold text-sm'>{username}</h2>
-            <p className='font-light text-dark-1 text-[0.75rem]'>{date}</p>
+            <h2 className='chat-username'>{username}</h2>
+            <p className='chat-date'>{date}</p>
             {important && <Carbon />}
           </div>
           <div>
-            <p className="text-[0.82rem] text-dark-2 font-normal">{message}</p>
+            <p className='chat-msg'>{message}</p>
           </div>
           {replies && replies!.length > 0 && (
-            <Link to='/chat-board/reply' className='text-primary_purple font-medium text-[0.75rem]'>
+            <Link
+              to='/chat-board/reply'
+              className='text-primary_purple font-medium text-[0.75rem]'
+            >
               {replies![0]} and {replies!.length - 1} others
             </Link>
           )}
@@ -54,11 +57,11 @@ const ChatBox = ({
         </div>
         <div className='flex flex-col space-y-1'>
           <div className='flex items-center space-x-4'>
-            <h2 className='font-medium'>{username}</h2>
-            <p className='font-light text-slate-800'>{date}</p>
+            <h2 className='chat-username'>{username}</h2>
+            <p className='chat-date'>{date}</p>
           </div>
           <div>
-            <p>{message}</p>
+            <p className='chat-msg'>{message}</p>
           </div>
         </div>
       </div>
@@ -70,11 +73,11 @@ const ChatBox = ({
       <div className='bg-primary_purple-1 rounded-md p-3'>
         <div className='flex flex-col space-y-1'>
           <div className='flex items-center space-x-4'>
-            <p>13: 23</p>
-            <p className='font-light text-slate-800'>{date}</p>
+            <p className='chat-date'>13: 23</p>
+            <p className='chat-date'>{date}</p>
           </div>
           <div>
-            <p>{message}</p>
+            <p className='chat-msg'>{message}</p>
           </div>
         </div>
       </div>
