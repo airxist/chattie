@@ -30,8 +30,8 @@ const ChatBoard = () => {
         </section>
 
         <ChatNav
-          className='border border-primary_purple-4 flex justify-center h-[60px] items-center space-x-3 overflow-hidden md:hidden'
-          linkClassName='border flex flex-col items-center text-sm'
+          className='flex-center h-[60px] space-x-3 overflow-hidden md:hidden'
+          linkClassName='flex flex-col items-center text-sm'
         />
       </div>
     </section>

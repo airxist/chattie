@@ -55,7 +55,10 @@ export interface AppContextType {
   spaceToDisplay: number | null,
   setSpaceToDisplay: React.Dispatch<React.SetStateAction<number | null>>,
   chatPage: chatPageType,
-  setChatPage: React.Dispatch<React.SetStateAction<chatPageType>>
+  setChatPage: React.Dispatch<React.SetStateAction<chatPageType>>,
+  showSideBar: boolean,
+  closeSideBar: () => void,
+  openSideBar: () => void
 }
 
 export interface chatPageType {

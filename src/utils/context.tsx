@@ -26,6 +26,13 @@ const AppProvider = ({ children }: ReactChildren) => {
     setTitle,
   } = useLocalState();
 
+
+  // SIDEBAR====================================
+  const [showSideBar, setShowSideBar] = useState(false);
+
+  const closeSideBar = () => setShowSideBar(false)
+  const openSideBar = () => setShowSideBar(true);
+  // END OF SIDEBAR ==============================
   const [chatData, setChatData] = useState<SpaceArrayType[]>(chatLists)
 // setRegisteredUsers removed it for now
   const [registeredUsers] = useState(registerdUsers);
@@ -89,7 +96,10 @@ const AppProvider = ({ children }: ReactChildren) => {
         spaceToDisplay,
         setSpaceToDisplay,
         chatPage,
-        setChatPage
+        setChatPage,
+        showSideBar,
+        closeSideBar,
+        openSideBar
       }}
     >
       {children}

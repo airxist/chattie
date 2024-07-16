@@ -40,3 +40,12 @@ export const animateAlert = (
       });
   }
 };
+
+interface animatingToType {
+  x: number,
+  ease: string,
+}
+
+export const animatingTo = (ref : React.MutableRefObject<null>, properties : animatingToType) => {
+  gsap.to(ref.current, {...properties})
+}

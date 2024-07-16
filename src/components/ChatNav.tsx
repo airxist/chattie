@@ -14,7 +14,7 @@ const ChatNav = ({
 
   return (
     <div
-      className={`${className || "h-2/5 px-8 py-3 border-b border-primary_purple flex flex-col space-y-1"}`}
+      className={`${className || "h-2/5 px-8 py-3 border-b border-primary_purple hidden md:flex flex-col space-y-1"}`}
     >
       {navigateChat.map((link, index) => {
         return (

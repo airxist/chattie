@@ -16,7 +16,7 @@ type TopBarProps = {
 const TopBar = ({ className, reference, chat, onboard }: TopBarProps) => {
   const { pathname } = useLocation();
 
-  const { title, setDirection, direction } =
+  const { title, setDirection, direction, openSideBar } =
     useGlobalContext() as AppContextType;
 
   const goBack = () => {
@@ -42,7 +42,7 @@ const TopBar = ({ className, reference, chat, onboard }: TopBarProps) => {
     return (
       <header className={`${className} h-[70px] chat-pad py-5`}>
         <div className='flex items-center justify-between'>
-          <h2 className='font-bold text-2xl'>{title}</h2>
+          <h2 className='font-bold text-2xl' onClick={openSideBar}>{title}</h2>
           <GoToProfile usernameClass='hidden md:block' />
         </div>
       </header>

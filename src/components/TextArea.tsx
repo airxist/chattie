@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const TextArea = ({ show }: { show?: boolean }) => {
   return (
-    <div className='chat-pad absolute bottom-0 md:bottom-10 w-full'>
+    <div className='chat-pad absolute bottom-4 md:bottom-10 w-full'>
       <div className='border border-slate-400 rounded-xl flex items-end relative'>
         {show && (
           <Button className='size-12 border-2 border-primary_purple bg-primary_purple-1 absolute -top-16 right-0 lg:size-16 lg:-top-20 flex-center rounded-md'>
