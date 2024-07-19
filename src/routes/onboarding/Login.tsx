@@ -10,8 +10,14 @@ import { AppContextType } from "../../constants/interfaces";
 const Login = () => {
   const navigate = useNavigate();
 
-  const { showAlarm, registeredUsers, loginUser, setUserSpaces, spaces, setSpaceToDisplay } =
-    useGlobalContext() as AppContextType;
+  const {
+    showAlarm,
+    registeredUsers,
+    loginUser,
+    setUserSpaces,
+    spaces,
+    setSpaceToDisplay,
+  } = useGlobalContext() as AppContextType;
 
   const [formData, setFormData] = useState({
     email: "",
@@ -53,14 +59,15 @@ const Login = () => {
     }
     const { id, fullname, profile } = findUser;
     // set up user spaces
-    const getUserSpaces = spaces.filter((space) => {
-      return space.members.find((member) => member === fullname);
-    }).map((userSpace, index) => {
-      return index === 0 ? {...userSpace, active: true} : {...userSpace}
-    });
+    const getUserSpaces = spaces
+      .filter((space) => {
+        return space.members.find((member) => member === fullname);
+      })
+      .map((userSpace, index) => {
+        return index === 0 ? { ...userSpace, active: true } : { ...userSpace };
+      });
     // update id of space to be displayed first
     const getIdOfSpaceToDisplay = getUserSpaces[0].id;
-
 
     setSpaceToDisplay(getIdOfSpaceToDisplay);
     setUserSpaces(getUserSpaces);
