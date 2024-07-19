@@ -11,7 +11,7 @@
 - [Overview](#overview)
   - [The challenge](#the-challenge)
     - [Main](#main)
-    - [Added](#added)]
+    - [Added](#added)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
