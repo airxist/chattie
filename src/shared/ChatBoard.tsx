@@ -18,7 +18,7 @@ const ChatBoard = () => {
   }, [spaceToDisplay]);
 
   return (
-    <section className='flex isolate'>
+    <section className='flex isolate max-w-screen-2xl mx-auto'>
       <SideBar />
       <div className='w-full sm:w-full md:w-4/6 lg:w-4/5'>
         <TopBar className='bg-primary_purple-2 chat-pad' chat />

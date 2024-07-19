@@ -24,7 +24,7 @@ const Onboarding = ({
 
   return (
     <section
-      className={`${className} || flex items-center justify-center h-screen`}
+      className={`${className} max-w-screen-2xl mx-auto flex items-center justify-center h-screen`}
     >
       <div className='relative flex-1 w-[50%] min-h-full p-5 md:p-10 flex-center isolate overflow-hidden'>
         <TopBar onboard className='absolute top-4 left-5 lg:top-14 lg:left-20' />
