@@ -21,13 +21,15 @@ const Onboarding = ({
   } = useGlobalContext() as AppContextType;
 
   const { pathname } = useLocation();
-
   return (
     <section
-      className={`${className} || flex items-center justify-center h-screen`}
+      className={`${className || "flex items-center justify-center h-screen"} max-w-screen-end mx-auto`}
     >
       <div className='relative flex-1 w-[50%] min-h-full p-5 md:p-10 flex-center isolate overflow-hidden'>
-        <TopBar onboard className='absolute top-4 left-5 lg:top-14 lg:left-20' />
+        <TopBar
+          onboard
+          className='absolute top-4 left-5 lg:top-14 lg:left-20'
+        />
         {pathname === "/verify" ? (
           <></>
         ) : (
@@ -45,7 +47,7 @@ const Onboarding = ({
       </div>
       {showBackground && (
         <div className='hidden lg:block w-[50%] h-full relative'>
-          <div className="overlay"/>
+          <div className='overlay' />
           <img src={backgroundImage} className='normal-img' />
         </div>
       )}

@@ -15,6 +15,9 @@ export default {
       }
     },
     extend: {
+      screens: {
+        end: '1440px'
+      },
       colors: {
         dark: {
           DEFAULT: '#393939',
