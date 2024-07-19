@@ -7,7 +7,7 @@ interface Registered {
   fullname: string;
   email: string;
   password: string;
-  profile?: string,
+  profile?: string;
   isVerified: boolean;
   verificationCode: string;
 }
@@ -15,8 +15,8 @@ interface Registered {
 export interface UserType {
   id: number;
   fullname: string;
-  email: string,
-  profile: string,
+  email: string;
+  profile: string;
   online: boolean;
 }
 
@@ -50,23 +50,29 @@ export interface AppContextType {
   registeredUsers: Registered[];
   // setRegisteredUsers: React.Dispatch<React.SetStateAction<Registered[]>>;
   user: UserType | null;
-  loginUser: (id: number, fullname: string, email: string, profile: string, online?: boolean) => void;
+  loginUser: (
+    id: number,
+    fullname: string,
+    email: string,
+    profile: string,
+    online?: boolean
+  ) => void;
   logoutUser: () => void;
-  spaceToDisplay: number | null,
-  setSpaceToDisplay: React.Dispatch<React.SetStateAction<number | null>>,
-  chatPage: chatPageType,
-  setChatPage: React.Dispatch<React.SetStateAction<chatPageType>>,
-  showSideBar: boolean,
-  closeSideBar: () => void,
-  openSideBar: () => void
+  spaceToDisplay: number | null;
+  setSpaceToDisplay: React.Dispatch<React.SetStateAction<number | null>>;
+  chatPage: chatPageType;
+  setChatPage: React.Dispatch<React.SetStateAction<chatPageType>>;
+  showSideBar: boolean;
+  closeSideBar: () => void;
+  openSideBar: () => void;
 }
 
 export interface chatPageType {
   id: number;
-    title: string;
-    description: string;
-    active: boolean;
-    chatLists: chatTemplate[] | undefined;
+  title: string;
+  description: string;
+  active: boolean;
+  chatLists: chatTemplate[] | undefined;
 }
 
 export interface chatTemplate {
@@ -78,7 +84,7 @@ export interface chatTemplate {
 }
 
 export interface SpaceArrayType {
-  id: number,
+  id: number;
   channels: {
     chats: chatTemplate[];
     dms: chatTemplate[];

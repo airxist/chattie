@@ -1,7 +1,14 @@
 import { useContext, useState } from "react";
 import { createContext } from "react";
 import useLocalState from "./useLocalState";
-import { ReactChildren, AppContextType, SpaceArrayType, UserType, SpacesType, chatPageType } from "../constants/interfaces";
+import {
+  ReactChildren,
+  AppContextType,
+  SpaceArrayType,
+  UserType,
+  SpacesType,
+  chatPageType,
+} from "../constants/interfaces";
 import registerdUsers from "../db/registeredUsers";
 import createdSpaces from "../db/createdSpaces";
 import chatLists from "../db/spacesChats";
@@ -13,7 +20,7 @@ const AppContext = createContext<AppContextType | null>(null);
 // create a provider
 const AppProvider = ({ children }: ReactChildren) => {
   const navigate = useNavigate();
-  
+
   const {
     alarm,
     showAlarm,
@@ -26,39 +33,50 @@ const AppProvider = ({ children }: ReactChildren) => {
     setTitle,
   } = useLocalState();
 
-
   // SIDEBAR====================================
   const [showSideBar, setShowSideBar] = useState(false);
 
-  const closeSideBar = () => setShowSideBar(false)
-  const openSideBar = () => setShowSideBar(true);
+  const closeSideBar = () => {
+    console.log("side bar closed");
+    setShowSideBar(false);
+  };
+  const openSideBar = () => {
+    console.log("sidebar is open");
+    setShowSideBar(true);
+  };
   // END OF SIDEBAR ==============================
-  const [chatData, setChatData] = useState<SpaceArrayType[]>(chatLists)
-// setRegisteredUsers removed it for now
+  const [chatData, setChatData] = useState<SpaceArrayType[]>(chatLists);
+  // setRegisteredUsers removed it for now
   const [registeredUsers] = useState(registerdUsers);
-  const [user, setUser] = useState<UserType | null>(null)
+  const [user, setUser] = useState<UserType | null>(null);
 
   const logoutUser = () => {
     setUser(null);
-    navigate('/login')
-  }
+    navigate("/login");
+  };
 
-  const loginUser = (id: number, fullname: string, email: string, profile: string, online: boolean = true) => {
+  const loginUser = (
+    id: number,
+    fullname: string,
+    email: string,
+    profile: string,
+    online: boolean = true
+  ) => {
     setUser({
       id,
       fullname,
       email,
       profile,
-      online
-    })
-  }
+      online,
+    });
+  };
 
   const [spaces, setSpaces] = useState(createdSpaces);
   const [userSpaces, setUserSpaces] = useState<SpacesType[] | []>([]);
 
   const [direction, setDirection] = useState("forward");
 
-  const [spaceToDisplay, setSpaceToDisplay] = useState<number | null>(null)
+  const [spaceToDisplay, setSpaceToDisplay] = useState<number | null>(null);
 
   const [chatPage, setChatPage] = useState<chatPageType>({
     id: 0,
@@ -66,7 +84,7 @@ const AppProvider = ({ children }: ReactChildren) => {
     description: "",
     active: false,
     chatLists: [],
-  })
+  });
 
   return (
     <AppContext.Provider
@@ -99,7 +117,7 @@ const AppProvider = ({ children }: ReactChildren) => {
         setChatPage,
         showSideBar,
         closeSideBar,
-        openSideBar
+        openSideBar,
       }}
     >
       {children}
