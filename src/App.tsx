@@ -72,7 +72,9 @@ const App = () => {
           <Route
             index
             element={
+              <Protected>
                 <Chat />
+              </Protected>
             }
           />
           <Route

@@ -35,26 +35,18 @@ const AppProvider = ({ children }: ReactChildren) => {
 
   // SIDEBAR====================================
   const [showSideBar, setShowSideBar] = useState(false);
-
-  const closeSideBar = () => {
-    console.log("side bar closed");
-    setShowSideBar(false);
-  };
-  const openSideBar = () => {
-    console.log("sidebar is open");
-    setShowSideBar(true);
-  };
+  const closeSideBar = () => setShowSideBar(false);
+  const openSideBar = () => setShowSideBar(true);
   // END OF SIDEBAR ==============================
   const [chatData, setChatData] = useState<SpaceArrayType[]>(chatLists);
   // setRegisteredUsers removed it for now
   const [registeredUsers] = useState(registerdUsers);
+  // USER ================================================
   const [user, setUser] = useState<UserType | null>(null);
-
   const logoutUser = () => {
     setUser(null);
     navigate("/login");
   };
-
   const loginUser = (
     id: number,
     fullname: string,
@@ -70,6 +62,7 @@ const AppProvider = ({ children }: ReactChildren) => {
       online,
     });
   };
+  // END OF USER =========================================
 
   const [spaces, setSpaces] = useState(createdSpaces);
   const [userSpaces, setUserSpaces] = useState<SpacesType[] | []>([]);

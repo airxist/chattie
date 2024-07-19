@@ -23,7 +23,7 @@ const Onboarding = ({
   const { pathname } = useLocation();
   return (
     <section
-      className={`${className || "flex items-center justify-center h-screen"} max-w-screen-2xl mx-auto`}
+      className={`${className} max-w-screen-2xl mx-auto flex items-center justify-center h-screen`}
     >
       <div className='relative flex-1 w-[50%] min-h-full p-5 md:p-10 flex-center isolate overflow-hidden'>
         <TopBar

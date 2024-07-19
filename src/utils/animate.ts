@@ -22,7 +22,7 @@ export const animateAlert = (
   switch (switching) {
     case true:
       gsap.from(ref.current, {
-        x: -100,
+        xPercent: -100,
         autoAlpha: 0,
         duration: 1.5,
         ease: "expo.out",
@@ -30,7 +30,7 @@ export const animateAlert = (
       break;
     default:
       gsap.to(ref.current, {
-        x: 200,
+        xPercent: 200,
         autoAlpha: 1,
         duration: 0.5,
         ease: "back.inOut",
@@ -40,12 +40,3 @@ export const animateAlert = (
       });
   }
 };
-
-interface animatingToType {
-  x: number,
-  ease: string,
-}
-
-export const animatingTo = (ref : React.MutableRefObject<null>, properties : animatingToType) => {
-  gsap.to(ref.current, {...properties})
-}
